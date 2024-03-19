@@ -25,7 +25,7 @@
             <id>Vaadin Directory</id>
             <url>https://maven.vaadin.com/vaadin-addons</url>
             <snapshots>
-                <enabled>false</enabled>
+                <enabled>true</enabled>
             </snapshots>
         </repository>
     </repositories>
@@ -76,6 +76,11 @@
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-testbench-junit5</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin.componentfactory</groupId>
+            <artifactId>anchor-nav</artifactId>
+            <version>23.4.0</version>
         </dependency>
     </dependencies>
 
