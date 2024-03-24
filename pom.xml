@@ -4,8 +4,8 @@
     <modelVersion>4.0.0</modelVersion>
     <!-- Project from https://start.vaadin.com/project/c7deb7bd-ad91-4744-8a17-5dc264fe3ef8 -->
     <groupId>com.example.application</groupId>
-    <artifactId>mytodo</artifactId>
-    <name>mytodo</name>
+    <artifactId>rowe-portfolio</artifactId>
+    <name>portfolio</name>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -64,6 +64,10 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
@@ -81,6 +85,11 @@
             <groupId>com.vaadin.componentfactory</groupId>
             <artifactId>anchor-nav</artifactId>
             <version>23.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

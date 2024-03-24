@@ -1,10 +1,10 @@
-package com.example.application.views.main;
+package com.example.application.views.main.sections;
 
-import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Paragraph;
 
-public class Introduction extends Div {
+public class Introduction extends PortfolioSection {
     public Introduction() {
+        super("Introduction");
         addClassName("introduction");
         add(new Paragraph("As a seasoned Full Stack Software Engineer with nearly a decade of experience, I bring a wealth of expertise in crafting innovative solutions across a diverse range of projects. Throughout my career, I've spearheaded initiatives, collaborated with multidisciplinary teams, and leveraged cutting-edge technologies to drive efficiency, enhance functionality, and elevate user experiences."));
         add(new Paragraph("My journey in Software Engineering began my first semester in Engineering. That was when I discovered my innate passion for problem-solving and the transformative power of software development. I changed my major and since then, I've dedicated myself to mastering the craft, continuously honing my skills and embracing new challenges with enthusiasm."));

@@ -1,11 +1,15 @@
-package com.example.application.views.main;
+package com.example.application.views.main.sections;
 
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
-import com.vaadin.flow.theme.lumo.LumoUtility;
+import com.vaadin.flow.spring.annotation.SpringComponent;
 
-public class Projects extends HorizontalLayout {
+@SpringComponent
+public class Projects extends PortfolioSection {
     public Projects() {
+        super("Projects");
+        HorizontalLayout flexContainer = new HorizontalLayout();
+        flexContainer.addClassName("flex-container");
         addClassName("projects");
         Div div = new Div();
         div.addClassNames("block");
@@ -15,6 +19,7 @@ public class Projects extends HorizontalLayout {
         div3.addClassNames("block");
         Div div4 = new Div();
         div4.addClassNames("block");
-        add(div, div2, div3, div4);
+        flexContainer.add(div, div2, div3, div4);
+        add(flexContainer);
     }
 }

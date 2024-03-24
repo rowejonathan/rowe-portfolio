@@ -1,6 +1,12 @@
 .main-view {
     height: 100%;
-    overflow: hidden;
+    overflow: auto;
+}
+
+.content {
+    max-width: 1080px;
+    padding: 0 20px;
+    margin: 0 auto;
 }
 
 .hidden-scroller::-webkit-scrollbar {
@@ -14,23 +20,30 @@
     padding: 0;
 }
 
+.content-tabs {
+    flex-grow: 1;
+}
+
 .introduction {
-    margin-left: 1em;
     text-indent: 30px;
     color: #333;
 }
 
-.projects {
+.flex-container {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
+.projects {
+    width: 100%;
+}
+
 .block {
     background-color: gray;
-    height: 400px;
-    width: 400px;
+    height: 200px;
+    width: 200px;
 }
 
 vaadin-tab[selected] {
