@@ -1,5 +1,6 @@
 package com.example.application.views.main;
 
+import com.example.application.security.SecurityService;
 import com.example.application.views.main.sections.Contact;
 import com.example.application.views.main.sections.Experience;
 import com.example.application.views.main.sections.Introduction;
@@ -8,19 +9,16 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
-import com.vaadin.flow.spring.annotation.SpringComponent;
-import com.vaadin.flow.spring.annotation.UIScope;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 
 @PageTitle("Main")
 @Route(value = "")
 @AnonymousAllowed
-@SpringComponent
-@UIScope
 public class MainView extends VerticalLayout {
 
-public MainView(NavBar navBar, Projects projects) {
-
+public MainView(SecurityService securityService) {
+        NavBar navBar = new NavBar(securityService);
+        Projects projects = new Projects();
         setPadding(false);
         addClassNames("main-view", LumoUtility.Overflow.HIDDEN);
         Introduction introduction = new Introduction();

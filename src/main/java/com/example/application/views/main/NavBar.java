@@ -3,20 +3,18 @@ package com.example.application.views.main;
 import com.example.application.security.SecurityService;
 import com.example.application.views.main.sections.PortfolioSection;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
-import com.vaadin.flow.spring.annotation.SpringComponent;
-import com.vaadin.flow.spring.annotation.UIScope;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 
 import java.util.stream.Stream;
 
-@SpringComponent
-@UIScope
+
 public class NavBar extends Div {
 
     private final SecurityService securityService;
@@ -32,7 +30,7 @@ public class NavBar extends Div {
         add(this.loginView);
         this.tabs.addClassName("content-tabs");
         setWidthFull();
-        addClassNames("nav-bar", LumoUtility.Background.PRIMARY, LumoUtility.TextColor.PRIMARY_CONTRAST, LumoUtility.BoxShadow.MEDIUM);
+        addClassNames("nav-bar");
 
 
         HorizontalLayout navBar = getNavBar();
@@ -45,6 +43,7 @@ public class NavBar extends Div {
         Button loginButton = this.securityService.isUserLoggedIn() ?
                 new Button("Logout", click -> this.securityService.logout()) :
                 new Button("Login", click -> this.loginView.open());
+        loginButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         loginButton.addClassNames(LumoUtility.Padding.Horizontal.MEDIUM, LumoUtility.FontSize.LARGE);
         HorizontalLayout navBar = new HorizontalLayout(FlexComponent.Alignment.CENTER, title, this.tabs, loginButton);
         navBar.addClassNames("content");
