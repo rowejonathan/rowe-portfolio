@@ -15,19 +15,23 @@ import com.vaadin.flow.theme.lumo.LumoUtility;
 @Route(value = "")
 @AnonymousAllowed
 public class MainView extends VerticalLayout {
-
-public MainView(SecurityService securityService) {
-        NavBar navBar = new NavBar(securityService);
+    NavBar navBar;
+    public MainView(SecurityService securityService) {
+        this.navBar = new NavBar(securityService);
         Projects projects = new Projects();
         setPadding(false);
         addClassNames("main-view", LumoUtility.Overflow.HIDDEN);
         Introduction introduction = new Introduction();
         Experience experience = new Experience();
         Contact contact = new Contact();
-        navBar.addSections(introduction, projects, experience, contact);
+        this.navBar.addSections(introduction, projects, experience, contact);
 
-        VerticalLayout scrollableContent = new VerticalLayout(introduction, projects, experience, contact);
+        ScrollableContent scrollableContent = new ScrollableContent(introduction, projects, experience, contact);
         scrollableContent.addClassNames("hidden-scroller", "content", LumoUtility.Overflow.SCROLL);
-        add(navBar, scrollableContent);
+        add(this.navBar, scrollableContent);
+    }
+
+    public void setActiveTab(String label) {
+        this.navBar.setActiveTab(label);
     }
 }

@@ -64,4 +64,10 @@ public class NavBar extends Div {
         return tab;
     }
 
+    public void setActiveTab(String label) {
+        this.tabs.getChildren()
+                .map(Tab.class::cast)
+                .forEach(tab -> tab.setSelected(tab.getLabel().equals(label)));
+    }
+
 }

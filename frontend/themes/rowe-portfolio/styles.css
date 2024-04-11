@@ -22,6 +22,7 @@
 
 .content-tabs {
     flex-grow: 1;
+    font-weight: 900;
 }
 
 .introduction {
@@ -46,11 +47,10 @@
     width: 200px;
 }
 
-vaadin-tab[selected] {
-    color: var(--lumo-header-text-color);
-    border-bottom: 2px solid var(--lumo-contrast-70pct);
-}
-
 vaadin-tab {
     font-weight: 900;
+}
+
+vaadin-tabs {
+    box-shadow: none;
 }
