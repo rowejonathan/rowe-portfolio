@@ -98,9 +98,11 @@ jobs:
           registry: '${{ env.GAR_LOCATION }}-docker.pkg.dev'
 
       - name: Build and Push Container
+        working-directory: .
         run: |-
           docker build -t "us-east5-docker.pkg.dev/jonathan-rowe-portfolio-417717/portfolio-docker-repo/portfolio:${{ github.sha }}" ./
           docker push "us-east5-docker.pkg.dev/jonathan-rowe-portfolio-417717/portfolio-docker-repo/portfolio:${{ github.sha }}"
+          
 
       # END - Docker auth and build
 
