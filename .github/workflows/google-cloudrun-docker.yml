@@ -55,21 +55,7 @@ env:
   REGION: YOUR_SERVICE_REGION # TODO: update Cloud Run service region
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK 21
-      uses: actions/setup-java@v3
-      with:
-        java-version: '21'
-        distribution: 'corretto'
-        cache: maven
-    - name: Build with Maven
-      run: mvn install -Pproduction --file pom.xml
-  deploy:
+  build-and-deploy:
     # Add 'id-token' with the intended permissions for workload identity federation
     permissions:
       contents: 'read'
@@ -77,6 +63,15 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'corretto'
+          cache: maven
+      - name: Build with Maven
+        run: mvn install -Pproduction --file pom.xml
       - name: Checkout
         uses: actions/checkout@v2
 
