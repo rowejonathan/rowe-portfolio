@@ -72,6 +72,7 @@ jobs:
           cache: maven
       - name: Build with Maven
         run: mvn install -Pproduction --file pom.xml
+      - run: mkdir staging && cp target/*.jar staging
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -94,8 +95,8 @@ jobs:
 
       - name: Build and Push Container
         run: |-
-          mv ./Dockerfile ${{ runner.temp }}/Dockerfile
-          docker build -t "us-east5-docker.pkg.dev/jonathan-rowe-portfolio-417717/portfolio-docker-repo/portfolio:${{ github.sha }}" ./
+          cp ./Dockerfile staging/Dockerfile
+          docker build -t "us-east5-docker.pkg.dev/jonathan-rowe-portfolio-417717/portfolio-docker-repo/portfolio:${{ github.sha }}" staging/
           docker push "us-east5-docker.pkg.dev/jonathan-rowe-portfolio-417717/portfolio-docker-repo/portfolio:${{ github.sha }}"
           
 
