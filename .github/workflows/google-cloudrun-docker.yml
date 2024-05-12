@@ -95,7 +95,7 @@ jobs:
 
       - name: Build and Push Container
         run: |-
-          cp ./Dockerfile staging/Dockerfile
+          cp ./Dockerfile staging
           docker build -t "us-east5-docker.pkg.dev/jonathan-rowe-portfolio-417717/portfolio-docker-repo/portfolio:${{ github.sha }}" staging/
           docker push "us-east5-docker.pkg.dev/jonathan-rowe-portfolio-417717/portfolio-docker-repo/portfolio:${{ github.sha }}"
           
